@@ -1,19 +1,15 @@
-
-    <h2 class="my-4 text-3xl font-bold text-center text-yellow-500">Landings</h2>
-
-    <%= link "Create new landing", to: Routes.landing_path(@conn, :new), class: "p-2 mb-4 text-white bg-yellow-500 rounded-md"  %>
-
+<h2 class="my-4 text-3xl font-bold text-center text-yellow-500">Landings</h2>
+<%= link "Create new landing", to: Routes.landing_path(@conn, :new), class: "p-2 mb-4 text-white bg-yellow-500 rounded-md"  %>
     <ul class="container flex flex-col items-center justify-center space-y-2">
         <%= for landing <- @landings do %>
             <li class="flex justify-between w-1/2 p-2 text-white border rounded-md">
                 <%= landing.title %>
-                <div class="space-x-2 text-yellow-400 text-bl">
-
-                 <%= link "Preview", to: Routes.landing_path(@conn, :show, landing) %>
-                 <%= link "Share", to: "/view/#{landing.slug}" %>
-                 <%= link "Emails", to: Routes.landing_path(@conn, :emails, landing) %>
-                 <%= link "Edit", to: Routes.landing_path(@conn, :edit, landing) %>
-                 <%= link "Delete", to: Routes.landing_path(@conn, :delete, landing), data: [confirm: "Are you sure you want to delete this Landing? You'll lose the entire email list."], method: :delete %>
+            <div class="space-x-2 text-yellow-400 text-bl">
+                <%= link "Preview", to: Routes.landing_path(@conn, :show, landing) %>
+                <%= link "Share", to: "/view/#{landing.slug}" %>
+                <%= link "Emails", to: Routes.landing_path(@conn, :emails, landing) %>
+                <%= link "Edit", to: Routes.landing_path(@conn, :edit, landing) %>
+                <%= link "Delete", to: Routes.landing_path(@conn, :delete, landing), data: [confirm: "Are you sure you want to delete this Landing? You'll lose the entire email list."], method: :delete %>
                 </div>
             </li>
         <% end %>

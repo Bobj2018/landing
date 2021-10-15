@@ -7,16 +7,14 @@
         <%= textarea f, :header_text, placeholder: "Header", class: "form-control p-2 rounded-md", rows: 5 %>
         <%= error_tag f, :header_text %>
         <%= textarea f, :call_to_action, placeholder: "Call to Action", class: "p-2 form-control rounded-md", rows: 3 %>
-         <%= error_tag f, :call_to_action %>
+        <%= error_tag f, :call_to_action %>
         <%= text_input f, :button_text, placeholder: "button text", class: "p-2 form-control rounded-md" %>
-         <%= error_tag f, :button_text %>
+        <%= error_tag f, :button_text %>
         <%= hidden_input f, :slug, value: Nanoid.generate() %>
 
         <div class="flex space-x-2 text-center text-white">
-        <%= link  "Cancel", to: Routes.landing_path(@conn, :index), class: "form-control rounded-md w-1/4 h- bg-green-500 p-4 text-md my-4"%>
-        <%= submit "Create", class: "form-control rounded-md w-3/4  bg-yellow-500 p-4 text-md my-4" %>
+            <%= link  "Cancel", to: Routes.landing_path(@conn, :index), class: "form-control rounded-md w-1/4 h- bg-green-500 p-4 text-md my-4"%>
+            <%= submit "Create", class: "form-control rounded-md w-3/4  bg-yellow-500 p-4 text-md my-4" %>
         </div>
     </div>
-
-
 <% end %>

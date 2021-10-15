@@ -1,13 +1,9 @@
-
-    <h2 class="my-4 text-3xl font-bold text-center text-yellow-500">Emails</h2>
-
-
-
-    <ul class="container flex flex-col items-center justify-center space-y-2">
-        <%= for email <- @emails do %>
-            <li class="flex justify-between w-1/2 p-2 text-white border rounded-md">
-                <%= email.email %>
-            </li>
+<h2 class="my-4 text-3xl font-bold text-center text-yellow-500">Emails</h2>
+<ul class="container flex flex-col items-center justify-center space-y-2">
+    <%= for email <- @emails do %>
+        <li class="flex justify-between w-1/2 p-2 text-white border rounded-md">
+            <%= email.email %>
+        </li>
         <% end %>
-        <%= link  "Go Back", to: Routes.landing_path(@conn, :index), class: "form-control rounded-md w-1/4 text-center text-yellow-500 hover:underline p-4 text-md my-4"%>
-    </ul>
+    <%= link  "Go Back", to: Routes.landing_path(@conn, :index), class: "form-control rounded-md w-1/4 text-center text-yellow-500 hover:underline p-4 text-md my-4"%>
+</ul>
