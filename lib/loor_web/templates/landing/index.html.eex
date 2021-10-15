@@ -8,7 +8,9 @@
             <li class="flex justify-between w-1/2 p-2 text-white border rounded-md">
                 <%= landing.title %>
                 <div class="space-x-2 text-yellow-400 text-bl">
-                 <%= link "View", to: "/view/#{landing.slug}" %>
+
+                 <%= link "Preview", to: Routes.landing_path(@conn, :show, landing) %>
+                 <%= link "Share", to: "/view/#{landing.slug}" %>
                  <%= link "Emails", to: Routes.landing_path(@conn, :emails, landing) %>
                  <%= link "Edit", to: Routes.landing_path(@conn, :edit, landing) %>
                  <%= link "Delete", to: Routes.landing_path(@conn, :delete, landing), data: [confirm: "Are you sure you want to delete this Landing? You'll lose the entire email list."], method: :delete %>

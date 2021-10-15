@@ -30,7 +30,7 @@ defmodule LoorWeb.LandingController do
     [%Landing{} = landing] = Landing |> where(slug: ^slug) |> Repo.all
     changeset = Email.changeset(%Email{}, %{})
 
-    render conn, "show.html", changeset: changeset, landing: landing
+    render conn, "show_view.html", changeset: changeset, landing: landing
   end
 
   def new(conn, _params) do
