@@ -14,18 +14,20 @@ defmodule LoorWeb.LandingController do
   end
 
   def emails(conn, %{"id" => landing_id}) do
-
     emails = Email |> where(landing_id: ^landing_id) |> Repo.all
-
-    # emails = Repo.all(query)
-
-    IO.inspect(emails)
 
     render conn, "emails.html", emails: emails
   end
 
   def show(conn, %{"id" => landing_id}) do
     landing = Repo.get(Landing, landing_id)
+    changeset = Email.changeset(%Email{}, %{})
+
+    render conn, "show.html", changeset: changeset, landing: landing
+  end
+
+  def view(conn, %{"slug" => slug}) do
+    [%Landing{} = landing] = Landing |> where(slug: ^slug) |> Repo.all
     changeset = Email.changeset(%Email{}, %{})
 
     render conn, "show.html", changeset: changeset, landing: landing
@@ -70,6 +72,8 @@ defmodule LoorWeb.LandingController do
         render conn, "edit.html", changeset: changeset, landing: current_landing
     end
   end
+
+
 
   def delete(conn, %{"id" => landing_id}) do
     Repo.get!(Landing, landing_id)

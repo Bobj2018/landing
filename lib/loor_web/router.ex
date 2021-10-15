@@ -18,6 +18,7 @@ defmodule LoorWeb.Router do
 
     get "/", LandingController, :index
     post "/email", EmailController, :add
+    get "/view/:slug", LandingController, :view
     get "/landing/:id/emails", LandingController, :emails
     resources "/landing", LandingController
   end

@@ -11,7 +11,7 @@
          <%= error_tag f, :call_to_action %>
         <%= text_input f, :button_text, placeholder: "button text", class: "p-2 form-control rounded-md" %>
          <%= error_tag f, :button_text %>
-        <%= hidden_input f, :slug, value: "_blank" %>
+        <%= hidden_input f, :slug %>
 
         <div class="flex space-x-2 text-center text-white">
         <%= link  "Cancel", to: Routes.landing_path(@conn, :index), class: "form-control rounded-md w-1/4 h- bg-green-500 p-4 text-md my-4"%>
