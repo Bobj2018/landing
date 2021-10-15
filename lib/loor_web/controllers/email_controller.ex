@@ -1,25 +1,26 @@
 defmodule LoorWeb.EmailController do
   use LoorWeb, :controller
 
-  alias Loor.{Repo, Email}
+  import Ecto.Query
+
+  alias Loor.{Repo, Email, Landing}
 
   def add(conn, %{"email" => email }) do
 
-    %{"landing_id" => id, "email" => email, "slug" => uuid} = email
-
+    %{"landing_id" => id, "email" => email, "slug" => slug} = email
     id = String.to_integer(id)
 
-    changeset = Email.changeset(%Email{}, %{"email" => email, "landing_id" => id})
+    [%Landing{} = landing] = Landing |> where(slug: ^slug) |> Repo.all
 
-    IO.inspect(conn)
+    changeset = Email.changeset(%Email{}, %{"email" => email, "landing_id" => id})
 
     case Repo.insert(changeset) do
       {:ok, _landing} ->
         conn
         |> put_flash(:info, "Thank you for signing up!")
-        |> redirect(to: Routes.landing_path(conn, :view, uuid ))
+        |> redirect(to: "/view/#{slug}")
       {:error, changeset} ->
-        render conn, "show.html", changeset: changeset
+        render conn, "show_view.html"
   end
 end
 end
