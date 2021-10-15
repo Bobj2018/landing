@@ -1,4 +1,4 @@
-# Loor
+# Landing
 
 To start your Phoenix server:
 
